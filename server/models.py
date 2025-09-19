@@ -7,8 +7,8 @@ class Plant(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    image = db.Column(db.String, nullable=True)   # Allow null values now
-    price = db.Column(db.Numeric, nullable=True)  # Allow null values now
+    image = db.Column(db.String, nullable=True) 
+    price = db.Column(db.Numeric, nullable=True)  
 
     def to_dict(self):
         return {

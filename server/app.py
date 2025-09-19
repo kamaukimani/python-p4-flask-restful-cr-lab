@@ -17,14 +17,14 @@ api = Api(app)
 
 class Plants(Resource):
     def get(self):
-        # Return a list of all plants in the database
+        
         plants = Plant.query.all()
         response_dict_list = [plant.to_dict() for plant in plants]
         return make_response(jsonify(response_dict_list), 200)
 
     def post(self):
         # Create a new plant using data from the request
-        data = request.get_json()  # Get data as JSON from the body
+        data = request.get_json()  
         new_plant = Plant(
             name=data['name'],
             image=data['image'],
@@ -39,7 +39,7 @@ class Plants(Resource):
 
 class PlantByID(Resource):
     def get(self, id):
-        # Get a specific plant by ID
+        
         plant = Plant.query.get(id)
         if plant is None:
             return make_response(jsonify({'message': 'Plant not found'}), 404)
